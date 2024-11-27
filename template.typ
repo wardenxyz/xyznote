@@ -18,8 +18,8 @@
   )
 
   set page(margin: (
-    top: 6cm, //封面标题上边距
-    bottom: 4cm, //封面标题下边距
+    top: 5cm, //封面标题上边距
+    bottom: 5cm, //封面标题下边距
   ))
 
   set heading(numbering: "1.")
@@ -37,22 +37,23 @@
   }
 
   //封面
-  align(center)[
-    #set text(font: ("Times New Roman", "kaiti"), lang: "zh")
-    #block(text(weight: 700, 25pt, title))
-    #v(4em, weak: true)
-    // #if subtitle != none [#text(18pt, weight: 500)[#subtitle]]
-    #v(3em, weak: true)
+  align(right)[
+    #set text(font: ("Times New Roman", "SimHei"), lang: "zh")
+    #block(text(weight: 700, 40pt, title))
+    #line(length: 100%, stroke: 3pt)
+    #v(1em, weak: true)
   ]
 
-  align(center)[#abstract]
+  align(right)[#abstract]
 
   align(bottom + center)[
-    #author //作者
+    #set text(size: 15pt)
+    *#author* //作者
   ]
 
   align(bottom + center)[
-    #createtime //创建时间
+    #set text(size: 15pt)
+    *#createtime* //创建时间
   ]
   //封面
 
