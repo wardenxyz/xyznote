@@ -109,6 +109,7 @@
 
   pagebreak()
 
+  //正文字体字号
   set text(
     font: ("Libertinus Serif", "microsoft yahei"),
     // size: 12pt,
