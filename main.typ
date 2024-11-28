@@ -8,6 +8,7 @@
   en-font: "Libertinus Serif",
   zh-font: "microsoft yahei",
   codefont: "jetbrains mono",
+  // bibliography-file: "ref.bib",
 )
 
 = 介绍

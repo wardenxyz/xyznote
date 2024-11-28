@@ -1,6 +1,5 @@
 #let note(
   title: "",
-  // subtitle: "",
   author: "",
   abstract: "",
   createtime: "",
@@ -8,6 +7,7 @@
   zh-font: "",
   codefont: "",
   body,
+  bibliography-file: none,
 ) = {
   set text(lang: "zh")
 
@@ -154,6 +154,13 @@
   // set par(leading: 1pt) //行间距
 
   body
+
+  if bibliography-file != none {
+    set text(font: ("Libertinus Serif","KaiTi")) //设置参考文献字体
+    pagebreak()
+    show bibliography: set text(10.5pt)
+    bibliography(bibliography-file, title: "参考文献", style: "gb-7714-2015-numeric")
+  }
 }
 
 // 绿框框强调
