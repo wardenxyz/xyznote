@@ -8,11 +8,13 @@
 
 正文字体、字号在[模板](template.typ) 113 行处修改
 
-页边距在[模板](template.typ) 100 行处修改
+代码字体在[模板](template.typ) 142 行处修改
 
-字间距、行间距在[模板](template.typ) 152 行处修改
+页边距在[模板](template.typ) 98 行处修改
 
-段落缩进在[模板](template.typ) 142 行处修改
+字间距、行间距在[模板](template.typ) 155 行处修改
+
+段落缩进在[模板](template.typ) 144 行处修改
 
 封面字体字号在[模板](template.typ) 39 行处修改
 
