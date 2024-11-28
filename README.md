@@ -6,11 +6,17 @@
 
 你可以直接新建一个 Typst 文件，然后打出 `typst`，代码片段会补全
 
-字体可以在 `mian.typ` 的参数中修改
+正文字体、字号在[模板](template.typ) 113 行处修改
 
-页边距在[模板](template.typ) 100 处行修改
+页边距在[模板](template.typ) 100 行处修改
 
-字间距、行间距在[模板](template.typ) 152 处行修改
+字间距、行间距在[模板](template.typ) 152 行处修改
+
+段落缩进在[模板](template.typ) 142 行处修改
+
+封面字体字号在[模板](template.typ) 39 行处修改
+
+参考文献字体字号在[模板](template.typ) 160 行处修改
 
 ## 特点
 

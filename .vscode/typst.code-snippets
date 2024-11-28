@@ -6,7 +6,7 @@
         "scope": "typst"
     },
     "New typst note": {
-        "body": "#import \"template.typ\": *\n\n#show: note.with(\n  title: \"$1\",\n  author: \"$2\",\n  abstract: \"$3\",\n  createtime: \"$4\",\n  en-font: \"$5\",\n  zh-font: \"$6\",\n  codefont: \"$7\",\n  bibliography-file: \"ref.bib\" //注释这里删除参考文献页面,\n)\n$0",
+        "body": "#import \"template.typ\": *\n\n#show: note.with(\n  title: \"$1\",\n  author: \"$2\",\n  abstract: \"$3\",\n  createtime: \"$4\",\n  bibliography-file: \"ref.bib\" //注释这里删除参考文献页面,\n)\n$0",
         "description": "New typst note",
         "prefix": "typst",
         "scope": "typst"

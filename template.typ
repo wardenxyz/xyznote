@@ -3,9 +3,6 @@
   author: "",
   abstract: "",
   createtime: "",
-  en-font: "",
-  zh-font: "",
-  codefont: "",
   body,
   bibliography-file: none,
 ) = {
@@ -112,7 +109,12 @@
 
   pagebreak()
 
-  set text(font: (en-font, zh-font), lang: "zh", region: "cn")
+  set text(
+    font: ("Libertinus Serif", "microsoft yahei"),
+    // size: 12pt,
+    lang: "zh",
+    region: "cn"
+  )
 
   set page(
     numbering: "1 / 1", //页码
@@ -137,7 +139,7 @@
     radius: 2pt,        // 设置圆角半径
   )
 
-  show raw: set text(font: codefont) //修改代码字体
+  show raw: set text(font: "jetbrains mono") //修改代码字体
 
   //段落缩进
   // set par(
