@@ -5,20 +5,21 @@
   createtime: "",
   body,
   bibliography-file: none,
+  // paper-size: "a4",
 ) = {
-  set text(lang: "zh")
+  set text(lang: "zh", region: "cn")
 
+
+  //文档属性
   set document(
     author: author,
     date: auto,
     title: title,
   )
 
-  set page(margin: (
-    top: 5cm, //封面标题上边距
-    bottom: 5cm, //封面标题下边距
-  ))
 
+
+  // 标题和大纲
   set heading(numbering: "1.")
   show heading: it => {
     set text(font: "Times New Roman")
@@ -33,31 +34,6 @@
     v(0.6em)
   }
 
-  //封面
-  align(right)[
-    #set text(font: ("Times New Roman", "NSimSun"), lang: "zh")
-    #block(text(weight: 700, 25pt, title))
-    #line(length: 100%, stroke: 3pt) //封面横线
-    #v(1em, weak: true)
-  ]
-
-  align(right)[
-    #set text(font: ("Libertinus Serif", "NSimSun"), size: 12pt)
-    #abstract
-  ]
-
-  align(bottom + center)[
-    #set text(size: 15pt)
-    *#author* //作者
-  ]
-
-  align(bottom + center)[
-    #set text(size: 15pt)
-    *#createtime* //创建时间
-  ]
-  //封面
-
-
   set outline(fill: repeat[~.], indent: 1em)
 
   show outline: set heading(numbering: none)
@@ -71,58 +47,68 @@
     text(font: "Times New Roman", rgb("#2196F3"))[#it]
   }
 
-  set page(
-  //页眉
-  header: locate(loc => {
-    set text(font: ("Libertinus Serif", "NSimSun"))
-    if loc.page() == 1{return}
 
-    let elems = query(heading.where(level: 1).after(loc))
 
-    let chapter-title = ""
-
-    if(elems == () or elems.first().location().page() != loc.page()){
-          let elems = query(heading.where(level: 1).before(loc))
-          chapter-title = elems.last().body
-        }else{
-          chapter-title = elems.first().body
-        }
-    align(right)[#chapter-title]
-
-    v(-8pt)
-    align(center)[#line(length: 105%, stroke: (thickness: 1pt, dash: "solid"))]
-  }),
-  )
-
-  //正文页边距
+  //封面
   set page(margin: (
-    top: 2cm, //上边距
-    bottom: 2cm, //下边距
-    right: 2cm, //右边距
-    left: 2cm, //左边距
+    top: 6cm,
+    bottom: 4cm,
   ))
+  align(right)[
+    #set text(font: ("Times New Roman", "NSimSun"))
+    #block(text(weight: 700, 25pt, title))
+    #line(length: 100%, stroke: 3pt) //封面横线
+    #v(1em, weak: true)
+  ]
 
-  pagebreak()
+  align(right)[
+    #set text(font: ("Libertinus Serif", "NSimSun"), size: 12pt)
+    #abstract
+  ]
 
-  outline()
+  align(bottom + center)[
+    #set text(size: 15pt)
+    *#author*
+  ]
 
-  pagebreak()
+  align(bottom + center)[
+    #set text(size: 15pt)
+    *#createtime*
+  ]
 
-  //正文字体字号
-  set text(
-    font: ("Libertinus Serif", "microsoft yahei"),
-    // size: 12pt,
-    lang: "zh",
-    region: "cn"
-  )
 
+
+  //页眉
   set page(
-    numbering: "1 / 1", //页码
-    number-align: right,
-  )
-  counter(page).update(1)
+    header: locate(loc => {
+      set text(font: ("Libertinus Serif", "NSimSun"))
+      if loc.page() == 1 {
+        return
+      }
 
-  set quote(block: true) //开启引用块
+      let elems = query(heading.where(level: 1).after(loc))
+
+      let chapter-title = ""
+
+      if (elems == () or elems.first().location().page() != loc.page()) {
+        let elems = query(heading.where(level: 1).before(loc))
+        chapter-title = elems.last().body
+      } else {
+        chapter-title = elems.first().body
+      }
+      align(right)[#chapter-title]
+
+      v(-8pt)
+      align(center)[#line(length: 105%, stroke: (thickness: 1pt, dash: "solid"))]
+    }),
+  )
+
+
+
+  //引用块
+  set quote(block: true)
+
+
 
   // codeblock
   show raw.where(block: true): block.with(
@@ -141,33 +127,66 @@
 
   show raw: set text(font: "jetbrains mono") //修改代码字体
 
-  //段落缩进
-  // set par(
-  //   justify: true,
-  //   first-line-indent: 1em,
-  // )
+
 
   //链接下划线
   show link: {
     underline.with(stroke: blue, offset: 2pt)
   }
 
+  // ---------------------------------------------------------- //
+
+  //正文页边距
+  set page(margin: (
+    top: 2cm,
+    bottom: 2cm,
+    right: 2cm,
+    left: 2cm,
+  ))
+
+  //正文字体字号
+  set text(
+    font: ("Libertinus Serif", "microsoft yahei"),
+    // size: 12pt,
+  )
+
   // set text(tracking: 1pt) //字间距
   // set par(leading: 1pt) //行间距
 
+  //段落缩进
+  // set par(
+  //   justify: true,
+  //   first-line-indent: 1em,
+  // )
+
+  pagebreak()
+
+  outline()
+
+  pagebreak()
+
+  //页码
+  set page(
+    numbering: "1 / 1",
+    number-align: right,
+  )
+  counter(page).update(1)
+
   body
 
+  //参考文献
   if bibliography-file != none {
     set text(font: ("Libertinus Serif", "KaiTi")) //设置参考文献字体
     pagebreak()
     show bibliography: set text(10.5pt)
     bibliography(bibliography-file, title: "参考文献", style: "gb-7714-2015-numeric")
   }
+
 }
 
-// 绿框框强调
-#let green_rect = counter("green_rect")
-#let green_rect(body) = {
+// 绿色强调框
+#let problem_counter = counter("problem")
+#let prob(body) = {
   block(
     fill: rgb(250, 255, 250),
     width: 100%,
