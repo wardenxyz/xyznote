@@ -1,50 +1,12 @@
 # Simple Typst note template
 
-![alt text](image/main.png)
+| 封面 | 目录 | 正文 | 参考文献 |
+|:--:|:--:|:--:|:--:|
+| ![alt text](image/main.png) | ![alt text](image/page-2.png) | ![alt text](image/page-3.png) | ![alt text](image/page-4.png) |
 
-## 用法
+## 使用
 
-你可以直接新建一个 Typst 文件，然后打出 `typst`，代码片段会补全
-
-正文字体、字号在[模板](template.typ) 113 行处修改
-
-代码字体在[模板](template.typ) 142 行处修改
-
-页边距在[模板](template.typ) 98 行处修改
-
-字间距、行间距在[模板](template.typ) 155 行处修改
-
-段落缩进在[模板](template.typ) 144 行处修改
-
-封面字体字号在[模板](template.typ) 39 行处修改
-
-参考文献字体字号在[模板](template.typ) 160 行处修改
-
-## 特点
-
-- 代码块样式
-
-效果：
-
-![alt text](image/codeblock.png)
-
-- 绿色强调框
-
-语法如下：
-
-```typst
-#green_rect[
-
-]
-```
-
-效果：
-
-![alt text](image/green.png)
-
-- 参考文献
-
-本笔记模板有参考文献，在最后一页，如果不想要笔记模板，你可以注释掉 `main.typ` 中的参数
+直接新建一个 `.typ` 文件，然后在文件中打出 `typst`，代码片段会补全，然后按照提示填写即可
 
 ## 鸣谢
 

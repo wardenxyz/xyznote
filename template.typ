@@ -35,13 +35,16 @@
 
   //封面
   align(right)[
-    #set text(font: ("Times New Roman", "SimHei"), lang: "zh")
-    #block(text(weight: 700, 40pt, title))
-    #line(length: 100%, stroke: 3pt)
+    #set text(font: ("Times New Roman", "NSimSun"), lang: "zh")
+    #block(text(weight: 700, 25pt, title))
+    #line(length: 100%, stroke: 3pt) //封面横线
     #v(1em, weak: true)
   ]
 
-  align(right)[#abstract]
+  align(right)[
+    #set text(font: ("Libertinus Serif", "NSimSun"), size: 12pt)
+    #abstract
+  ]
 
   align(bottom + center)[
     #set text(size: 15pt)
@@ -71,7 +74,7 @@
   set page(
   //页眉
   header: locate(loc => {
-    set text(font: ("Libertinus Serif", "kaiti"))
+    set text(font: ("Libertinus Serif", "NSimSun"))
     if loc.page() == 1{return}
 
     let elems = query(heading.where(level: 1).after(loc))
@@ -79,16 +82,12 @@
     let chapter-title = ""
 
     if(elems == () or elems.first().location().page() != loc.page()){
-      let elems = query(heading.where(level: 1).before(loc))
-      chapter-title = elems.last().body
-    }else{
-      chapter-title = elems.first().body
-    }
-    if calc.even(loc.page()) == true {
-      h(1fr) + emph(chapter-title)
-    }else{
-      h(1fr) + emph(chapter-title)
-    }
+          let elems = query(heading.where(level: 1).before(loc))
+          chapter-title = elems.last().body
+        }else{
+          chapter-title = elems.first().body
+        }
+    align(right)[#chapter-title]
 
     v(-8pt)
     align(center)[#line(length: 105%, stroke: (thickness: 1pt, dash: "solid"))]
@@ -159,7 +158,7 @@
   body
 
   if bibliography-file != none {
-    set text(font: ("Libertinus Serif","KaiTi")) //设置参考文献字体
+    set text(font: ("Libertinus Serif", "KaiTi")) //设置参考文献字体
     pagebreak()
     show bibliography: set text(10.5pt)
     bibliography(bibliography-file, title: "参考文献", style: "gb-7714-2015-numeric")

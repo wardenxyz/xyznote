@@ -1,58 +1,45 @@
 #import "template.typ": *
 
 #show: note.with(
-  title: "Note",
+  title: "A Typst Note template",
   author: "wardenxyz",
-  abstract: "一个简单的Typst笔记模板",
+  abstract: "一个简单的 Typst 笔记模板",
   createtime: "2024-11-27",
   bibliography-file: "ref.bib",
 )
 
 = 介绍
 
-这是一个简单的Typst笔记模板，用于记录一些笔记
+这是一个简单的 Typst 笔记模板 @typst_note_template，用于记录笔记、学习、工作等内容
 
-正文字体、字号在 `template` 113 行处修改
+= 使用
 
-代码字体在 `template` 142 行处修改
+直接新建一个 `.typ` 文件，然后在文件中打出 `typst`，代码片段会补全，然后按照提示填写即可
 
-页边距在 `template` 98 行处修改
+= 公式
 
-字间距、行间距在 `template` 155 行处修改
+$
+  (a + b)^2 = a^2 + 2a b + b^2
+$
 
-段落缩进在 `template` 144 行处修改
+$a^2-b^2 = (a-b)(a+b)$
 
-封面字体字号在 `template` 39 行处修改
+= 图片
 
-参考文献字体字号在 `template` 160 行处修改
+#figure(
+  image("image/1.png", width: 80%),
+)
 
-段落缩进在 `template.typ` 145 处行修改
+= 代码
 
-== 代码块样式
-
-`inline code`
-
-```typst
-code block
-``` 
-
-== 绿色强调框
-
-```typst
-#green_rect[
-
-]
+```python
+def hello():
+  print("Hello, Typst!")
 ```
-
-效果如下：
-
-#green_rect[
-  被绿色框框包裹的内容
-]
 
 = 鸣谢
 
-本笔记模板用到了以下三个项目的代码
+本项目借用了以下三个项目的代码
 
 https://github.com/gRox167/typst-assignment-template @typst-assignment-template
 
