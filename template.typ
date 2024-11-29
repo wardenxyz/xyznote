@@ -51,12 +51,25 @@
 
   //封面
   set page(margin: (
-    top: 6cm,
+    top: 7cm,
     bottom: 4cm,
+    left: 2cm,
   ))
+
+
+  polygon(
+  fill: rgb("#bb4e4d"),
+  (0cm, -7cm), // 左上角开始顺时针第一个点 x y 左负右正 上负下正
+  (1.8cm, -7cm), // 左上角开始顺时针第二个点
+  (1.8cm, -4cm), // 左上角开始顺时针第三个点
+  (0.9cm, -4.9cm), // 左上角开始顺时针第四个点 (上下两个数的中点, 绝对值要比上下两个大)
+  (0cm, -4cm), // 左上角开始顺时针第五个点
+)
+
+
   align(right)[
     #set text(font: ("Times New Roman", "NSimSun"))
-    #block(text(weight: 700, 25pt, title))
+    #block(text(weight: 700, 30pt, title))
     #line(length: 100%, stroke: 3pt) //封面横线
     #v(1em, weak: true)
   ]
@@ -134,7 +147,7 @@
     underline.with(stroke: blue, offset: 2pt)
   }
 
-  // ---------------------------------------------------------- //
+  // ------------------------ 以下为正文配置 ---------------------------------- //
 
   //正文页边距
   set page(margin: (
@@ -185,7 +198,6 @@
 }
 
 // 绿色强调框
-#let problem_counter = counter("problem")
 #let prob(body) = {
   block(
     fill: rgb(250, 255, 250),
