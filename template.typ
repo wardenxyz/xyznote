@@ -3,11 +3,13 @@
   author: "",
   abstract: "",
   createtime: "",
+  bibliographystyle: "",
+  lang: "",
   body,
   bibliography-file: none,
   // paper-size: "a4",
 ) = {
-  set text(lang: "zh", region: "cn")
+  set text(lang: lang)
 
 
   //文档属性
@@ -18,21 +20,25 @@
   )
 
 
+  //标题计数器
+  let chaptercounter = counter("chapter")
 
   // 标题和大纲
-  set heading(numbering: "1.")
-  show heading: it => {
-    set text(font: "Times New Roman")
-    set par(first-line-indent: 0em)
-
-    if it.numbering != none {
+  set heading(numbering: "1.1.1.1.1.")
+  show heading: it => [
+    #set text(font: ("libertinus serif", "kaiti"))
+    #if it.numbering != none {
       text(rgb("#2196F3"), weight: 500)[#sym.section]
-
+      h(0.5em)
       text(rgb("#2196F3"))[#counter(heading).display() ]
     }
-    it.body
-    v(0.6em)
-  }
+    #it.body
+    #v(0.1em)
+    #if it.level == 1 and it.numbering != none {
+      chaptercounter.step()
+      counter(math.equation).update(0)
+    }
+  ]
 
   set outline(fill: repeat[~.], indent: 1em)
 
@@ -40,11 +46,11 @@
   show outline: set par(first-line-indent: 0em)
 
   show outline.entry.where(level: 1): it => {
-    text(font: "Times New Roman", rgb("#2196F3"))[#strong[#it]]
+    text(font: "libertinus serif", rgb("#2196F3"))[#strong[#it]]
   }
   show outline.entry: it => {
     h(1em)
-    text(font: "Times New Roman", rgb("#2196F3"))[#it]
+    text(font: "libertinus serif", rgb("#2196F3"))[#it]
   }
 
 
@@ -92,29 +98,27 @@
 
 
   //页眉
-  set page(
-    header: locate(loc => {
-      set text(font: ("Libertinus Serif", "NSimSun"))
-      if loc.page() == 1 {
-        return
-      }
+  set page(header: context {
+    set text(font: ("Libertinus Serif", "NSimSun"))
+    if here().page() == 1 {
+      return
+    }
 
-      let elems = query(heading.where(level: 1).after(loc))
+    let elems = query(heading.where(level: 1).after(here()))
 
-      let chapter-title = ""
+    let chapter-title = ""
 
-      if (elems == () or elems.first().location().page() != loc.page()) {
-        let elems = query(heading.where(level: 1).before(loc))
-        chapter-title = elems.last().body
-      } else {
-        chapter-title = elems.first().body
-      }
-      align(right)[#chapter-title]
+    if (elems == () or elems.first().location().page() != here().page()) {
+      let elems = query(heading.where(level: 1).before(here()))
+      chapter-title = elems.last().body
+    } else {
+      chapter-title = elems.first().body
+    }
+    align(right)[#chapter-title]
 
-      v(-8pt)
-      align(center)[#line(length: 105%, stroke: (thickness: 1pt, dash: "solid"))]
-    }),
-  )
+    v(-8pt)
+    align(center)[#line(length: 105%, stroke: (thickness: 1pt, dash: "solid"))]
+  })
 
 
 
@@ -123,29 +127,51 @@
 
 
 
-  // codeblock
-  show raw.where(block: true): block.with(
-    fill: luma(87.45%),   // 设置背景颜色
-    inset: 7pt,         // 设置内边距
-    radius: 2pt,         // 设置圆角半径
-    width: 100%,         // 设置宽度为 100%
-  )
+  // // codeblock
+  // show raw.where(block: true): block.with(
+  //   fill: luma(87.45%),   // 设置背景颜色
+  //   inset: 7pt,         // 设置内边距
+  //   radius: 2pt,         // 设置圆角半径
+  //   width: 100%,         // 设置宽度为 100%
+  // )
   //inlinecode
-  show raw.where(block: false): box.with(
-    fill: luma(87.45%),   // 设置背景颜色
-    inset: 2pt, // 设置内边距
-    outset: (y: 1.5pt),   // 设置上下的外边距
-    radius: 2pt,        // 设置圆角半径
-  )
+  show raw.where(block: false): it => box(fill: rgb("#d7d7d7"), inset: (x: 2pt), outset: (y: 3pt), radius: 1pt)[#it]
 
-  show raw: set text(font: "jetbrains mono") //修改代码字体
+  // show raw: set text(font: "jetbrains mono") //修改代码字体
 
-
+  show table.cell.where(y: 0): strong //表格表头加粗
 
   //链接下划线
   show link: {
     underline.with(stroke: blue, offset: 2pt)
   }
+
+  //外部包
+  import "@preview/codly:1.0.0": *
+  import "@preview/codly-languages:0.1.1": *
+  show: codly-init //初始化 codly
+  // codly(number-format: none) //不显示行号
+  codly(languages: codly-languages) //设置语言图标
+
+
+  //公式编号
+  set math.equation(numbering: (..nums) => (
+    context {
+      set text(size: 9pt)
+      numbering("(1.1)", chaptercounter.at(here()).first(), ..nums)
+    }
+  ))
+
+  // caption 计数器
+  set figure(numbering: (..nums) => (
+    context {
+      set text(font: ("Libertinus Serif", "KaiTi"), size: 9pt)
+      numbering("1.1", chaptercounter.at(here()).first(), ..nums)
+    }
+  ))
+
+  //图片表格 caption 字体字号
+  show figure.caption: set text(font: ("Libertinus Serif", "KaiTi"), size: 9pt)
 
   // ------------------------ 以下为正文配置 ---------------------------------- //
 
@@ -160,7 +186,7 @@
   //正文字体字号
   set text(
     font: ("Libertinus Serif", "microsoft yahei"),
-    // size: 12pt,
+    // size: 11pt,
   )
 
   // set text(tracking: 1pt) //字间距
@@ -189,16 +215,17 @@
 
   //参考文献
   if bibliography-file != none {
-    set text(font: ("Libertinus Serif", "KaiTi")) //设置参考文献字体
+    set text(font: ("Times New Roman", "KaiTi")) //设置参考文献字体
     pagebreak()
     show bibliography: set text(10.5pt)
-    bibliography(bibliography-file, title: "参考文献", style: "gb-7714-2015-numeric")
+    bibliography("template/refs.bib", style: bibliographystyle)
   }
 
 }
 
-// 绿色强调框
-#let prob(body) = {
+// 自定义样式块
+
+#let greenbox(body) = {
   block(
     fill: rgb(250, 255, 250),
     width: 100%,
@@ -208,3 +235,27 @@
     body,
   )
 }
+
+#let markblock(cite: none, body) = [
+  #set text(size: 10.5pt)
+  #pad(left: 0.5em)[
+    #block(
+      breakable: true,
+      width: 100%,
+      fill: rgb("#d0f2fe"),
+      radius: (left: 1pt),
+      stroke: (left: 4pt + rgb("#5da1ed")),
+      inset: 1em,
+    )[#body]
+  ]
+]
+
+#let sectionline = [
+  #set align(center)
+  #v(0.5cm) // 分割线上边距
+  #line(
+    length: 80%,
+    stroke: (paint: rgb("#767676"), thickness: 1.2pt, dash: ("dot", 5pt, 10pt, 5pt)),
+  )
+  #v(0.5cm) //分割线下边距
+]

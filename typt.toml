@@ -1,0 +1,15 @@
+[package]
+name = "Typst Notebooks"
+version = "0.2.0"
+entrypoint = "template.typ"
+license = "MIT-0"
+description = "A Typst template for creating notebooks."
+repository = "https://github.com/wardenxyz/typst_note_template"
+authors = ["wardenxyz <https://github.com/wardenxyz>"]
+categories = ["book"]
+compiler = "0.12.0"
+
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

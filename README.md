@@ -1,22 +1,80 @@
-# Simple Typst note template
+# Typst note template
 
-| 封面 | 目录 | 正文 | 参考文献 |
-|:--:|:--:|:--:|:--:|
-| ![alt text](image/main.png) | ![alt text](image/page-2.png) | ![alt text](image/page-3.png) | ![alt text](image/page-4.png) |
+Simple and Functional Typst Note Template
 
-## VS Code 本地编辑（推荐）
+This template is designed for efficient and organized note-taking with Typst. It provides a clean and straightforward structure, making it easy to capture and organize your thoughts without unnecessary complexity.
 
-1. 在 VS Code 中安装 [Tinymist Typst](https://marketplace.visualstudio.com/items?itemName=myriad-dreamin.tinymist) 插件，负责语法高亮, 错误检查和 PDF 预览。
+## Usage
 
-2. 直接新建一个 `.typ` 文件，然后在文件中打出 `typst`，代码片段会补全，然后按照提示填写即可
+```typ
+#import "@preview/xyznote:0.2.0": *
 
-3. Ctrl+K V 即可预览 PDF
+#show: xyznote.with(
+  title: "xyznote",
+  author: "wardenxyz",
+  abstract: "A simple typst note template",
+  createtime: "2024-11-27",
+  lang: "zh",
+  bibliographystyle: "ieee",
+  bibliography-file: "refs.bib", //Annotate this line to delete the bibliography page.
+)
+```
 
-4. 点击 typst 文件顶部 `Export PDF` 就可以导出 PDF 文件
+## Features
 
-## 鸣谢
+- **PDF Metadata**: Includes fields for title, author and date.
 
-这个项目用到了以下三个项目的代码
+- **Table of Contents**: Automatically generated ToC for easy navigation through the document.
+
+- **References (Optional)**: A dedicated section for citing sources and references. Include this only if you need it.
+
+## Custom styles
+
+```typ
+#greenbox[
+  Contents
+]
+```
+
+```typ
+#markblock[
+  Contents
+]
+```
+
+```typ
+#sectionline
+```
+
+## Edit in the vscode(Recommended)
+
+1. Install the [Tinymist Typst](https://marketplace.visualstudio.com/items?itemName=myriad-dreamin.tinymist) extension in VS Code, which provides syntax highlighting, error checking, and PDF preview
+
+2. Start the project
+
+```bash
+typst init @preview/xyznote:0.2.0
+```
+
+```bash
+cd xyznote
+```
+
+```bash
+code .
+```
+
+3. Press `Ctrl+K V` to open the PDF preview
+
+4. Click `Export PDF` at the top of the Typst file to export the PDF.
+
+## Edit in the Webapp
+
+Click the `Create project in app` button on the right to edit within the Webapp.
+
+## Acknowledgments
+
+The following projects have been instrumental in providing substantial inspiration and code for this project.
 
 https://github.com/gRox167/typst-assignment-template
 
