@@ -1,5 +1,11 @@
 # Typst note template
 
+[简体中文](README_zh.md) English
+
+| Cover | Contents | Main Body | Bibliography |
+|:--:|:--:|:--:|:--:|
+| ![Cover](image/main.png) | ![Contents](image/page-2.png) | ![Main Body](image/page-3.png) | ![Bibliography](image/page-4.png) |
+
 Simple and Functional Typst Note Template
 
 This template is designed for efficient and organized note-taking with Typst. It provides a clean and straightforward structure, making it easy to capture and organize your thoughts without unnecessary complexity.

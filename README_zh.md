@@ -1,36 +1,86 @@
-# Simple Typst note template
+# Typst note template
+
+简体中文 [English](README.md)
 
 | 封面 | 目录 | 正文 | 参考文献 |
 |:--:|:--:|:--:|:--:|
-| ![alt text](image/main.png) | ![alt text](image/page-2.png) | ![alt text](image/page-3.png) | ![alt text](image/page-4.png) |
+| ![Cover](image/main.png) | ![Contents](image/page-2.png) | ![Main Body](image/page-3.png) | ![Bibliography](image/page-4.png) |
+
+简单且实用的 Typst 笔记模板
+
+xyznote 是一个专为 Typst 设计的模板，旨在帮助用户记录高效且有组织的笔记。它提供了一个干净且直接的结构，使得记录和整理想法变得更加简单。
 
 ## 使用
 
 ```typ
-#import "@preview/xyznote:0.1.0": *
+#import "@preview/xyznote:0.2.0": *
 
-#show: note.with(
-  title: "A Typst Note template",
+#show: xyznote.with(
+  title: "xyznote",
   author: "wardenxyz",
-  abstract: "一个简单的 Typst 笔记模板",
+  abstract: "A simple typst note template",
   createtime: "2024-11-27",
-  bibliography-file: "ref.bib",
+  lang: "zh",
+  bibliographystyle: "ieee",
+  bibliography-file: "refs.bib", //Annotate this line to delete the bibliography page.
 )
 ```
 
-## VS Code 本地编辑（推荐）
+## 功能特性
 
-1. 在 VS Code 中安装 [Tinymist Typst](https://marketplace.visualstudio.com/items?itemName=myriad-dreamin.tinymist) 插件，负责语法高亮, 错误检查和 PDF 预览。
+- **PDF 元数据**：包含标题、作者和日期字段。
 
-2. 直接新建一个 `.typ` 文件，然后在文件中打出 `typst`，代码片段会补全，然后按照提示填写即可
+- **目录**：自动生成的目录（ToC），便于在文档中导航。
 
-3. Ctrl+K V 即可预览 PDF
+- **引用（可选）**：一个专门用于引用来源和参考文献的部分。仅在需要时包含此部分。
 
-4. 点击 typst 文件顶部 `Export PDF` 就可以导出 PDF 文件
+## 自定义样式
+
+```typ
+#greenbox[
+  Contents
+]
+```
+
+```typ
+#markblock[
+  Contents
+]
+```
+
+```typ
+#sectionline
+```
+
+## 在 VSCode 中编辑（推荐）
+
+1. 在 VS Code 中安装 [Tinymist Typst](https://marketplace.visualstudio.com/items?itemName=myriad-dreamin.tinymist) 扩展，它提供了语法高亮、错误检查和 PDF 预览功能。
+
+2. 开始项目
+
+```bash
+typst init @preview/xyznote:0.2.0
+```
+
+```bash
+cd xyznote
+```
+
+```bash
+code .
+```
+
+3. 按 `Ctrl+K V` 打开 PDF 预览
+
+4. 点击 Typst 文件顶部的 `Export PDF` 导出 PDF。
+
+## 在 Webapp 中编辑
+
+点击右侧的 `Create project in app` 按钮，在 Webapp 内编辑。
 
 ## 鸣谢
 
-这个项目用到了以下三个项目的代码
+以下项目为本项目的开发提供了关键的灵感和重要的代码贡献。
 
 https://github.com/gRox167/typst-assignment-template
 
