@@ -22,7 +22,7 @@ This template is designed for efficient and organized note-taking with Typst. It
   createtime: "2024-11-27",
   lang: "zh",
   bibliography-style: "ieee",
-  bibliography-file: "refs.bib", //Annotate this line to delete the bibliography page.
+  bibliography-file: bibliography("refs.bib"), //Annotate this line to delete the bibliography page.
 )
 ```
 

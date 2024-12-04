@@ -21,8 +21,8 @@ xyznote 是一个专为 Typst 设计的模板，旨在帮助用户记录高效�
   abstract: "A simple typst note template",
   createtime: "2024-11-27",
   lang: "zh",
-  bibliographystyle: "ieee",
-  bibliography-file: "refs.bib", //Annotate this line to delete the bibliography page.
+  bibliography-style: "ieee",
+  bibliography-file: bibliography("refs.bib"), //注释这一行删除参考文献页面
 )
 ```
 
