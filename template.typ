@@ -1,10 +1,10 @@
-#let note(
+#let xyznote(
   title: "",
   author: "",
   abstract: "",
   createtime: "",
-  bibliographystyle: "",
-  lang: "",
+  bibliography-style: "ieee",
+  lang: "zh",
   body,
   bibliography-file: none,
   // paper-size: "a4",
@@ -218,14 +218,16 @@
     set text(font: ("Times New Roman", "KaiTi")) //设置参考文献字体
     pagebreak()
     show bibliography: set text(10.5pt)
-    bibliography("template/refs.bib", style: bibliographystyle)
+    set bibliography(style: bibliography-style)
+    bibliography-file
   }
 
 }
 
 // 自定义样式块
 
-#let greenbox(body) = {
+// Green mark box
+#let markbox(body) = {
   block(
     fill: rgb(250, 255, 250),
     width: 100%,
@@ -236,7 +238,8 @@
   )
 }
 
-#let markblock(cite: none, body) = [
+// Blue tip box
+#let tipbox(cite: none, body) = [
   #set text(size: 10.5pt)
   #pad(left: 0.5em)[
     #block(

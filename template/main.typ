@@ -1,13 +1,13 @@
 #import "../template.typ": *
 
-#show: note.with(
+#show: xyznote.with(
   title: "xyznote",
   author: "wardenxyz",
   abstract: "A simple typst note template",
   createtime: "2024-11-27",
   lang: "zh",
-  bibliographystyle: "ieee",
-  bibliography-file: "refs.bib",
+  bibliography-style: "ieee",
+  bibliography-file: bibliography("refs.bib"), //注释这一行删除参考文献页面
 )
 
 = 介绍
@@ -57,10 +57,10 @@ https://github.com/gRox167/typst-assignment-template @typst-assignment-template
 
 #sectionline
 
-#greenbox[
-  
+#tipbox[
+  contents
 ]
 
-#markblock[
-  
+#markbox[
+  contents
 ]

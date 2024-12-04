@@ -5,16 +5,16 @@
         "prefix": "typst",
         "scope": "typst"
     },
-    "greenbox": {
-        "body": "#greenbox[\n  $1\n]",
-        "description": "绿框框",
-        "prefix": "greenbox",
+    "Green mark box": {
+        "body": "#markbox[\n  $1\n]",
+        "description": "Green mark box",
+        "prefix": "markbox",
         "scope": "typst"
     },
-    "markdown block": {
-        "body": "#markblock[\n  $1\n]",
-        "description": "markdown block",
-        "prefix": "markblock",
+    "Blue tip box": {
+        "body": "#tipbox[\n  $1\n]",
+        "description": "Blue tip box",
+        "prefix": "tipbox",
         "scope": "typst"
     },
     "分割线": {
