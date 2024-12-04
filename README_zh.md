@@ -37,14 +37,14 @@ xyznote 是一个专为 Typst 设计的模板，旨在帮助用户记录高效�
 ## 自定义样式
 
 ```typ
-#greenbox[
-  Contents
+#tipbox[
+  contents
 ]
 ```
 
 ```typ
-#markblock[
-  Contents
+#markbox[
+  contents
 ]
 ```
 
