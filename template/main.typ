@@ -1,4 +1,4 @@
-#import "../template.typ": *
+#import "../src/lib.typ": *
 
 #show: xyznote.with(
   title: "xyznote",
@@ -7,6 +7,9 @@
   createtime: "2024-11-27",
   lang: "zh",
   bibliography-style: "ieee",
+  preface: [
+    #lorem(110)
+  ], //注释这一行删除参考序页
   bibliography-file: bibliography("refs.bib"), //注释这一行删除参考文献页面
 )
 
@@ -45,15 +48,45 @@ $a^2-b^2 = (a-b)(a+b)$
   caption: "代码示例",
 )
 
-= 鸣谢
+= 自定义样式
 
-本项目借用了以下三个项目的代码
+This is #highlight(fill: blue.C)[highlighted in blue]. This is #highlight(fill: yellow.C)[highlighted in yellow]. This is #highlight(fill: green.C)[highlighted in green]. This is #highlight(fill: red.C)[highlighted in red].
 
-https://github.com/a-kkiri/SimpleNote @SimpleNote
+#sectionline
 
-https://github.com/DVDTSB/dvdtyp @dvdtyp
+#brainstorming(lang: "en")[
+  This is a brainstorming.
+]
 
-https://github.com/gRox167/typst-assignment-template @typst-assignment-template
+#definition[
+  This is a definition.
+]
+
+#pagebreak()
+
+#question[
+  This is a question.
+]
+
+#task[
+  This is a task.
+]
+
+#brainstorming(lang: "zh")[
+  This is a brainstorming.
+]
+
+#definition(lang: "zh")[
+  This is a definition.
+]
+
+#question(lang: "zh")[
+  This is a question.
+]
+
+#task(lang: "zh")[
+  This is a task.
+]
 
 #sectionline
 
@@ -64,3 +97,26 @@ https://github.com/gRox167/typst-assignment-template @typst-assignment-template
 #markbox[
   contents
 ]
+
+#sectionline
+
+#figure(
+  table(
+    columns: (1fr, 1fr, 1fr),
+    [77],[77],[77],
+    [77],[77],[77],
+    [77],[77],[77],
+  )
+)
+
+= 鸣谢
+
+本项目借用了以下三个项目的代码
+
+https://github.com/a-kkiri/SimpleNote @SimpleNote
+
+https://github.com/DVDTSB/dvdtyp @dvdtyp
+
+https://github.com/gRox167/typst-assignment-template @typst-assignment-template
+
+https://github.com/spidersouris/touying-unistra-pristine @touying-unistra-pristine

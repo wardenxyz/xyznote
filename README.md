@@ -13,7 +13,7 @@ This template is designed for efficient and organized note-taking with Typst. It
 ## Usage
 
 ```typ
-#import "@preview/xyznote:0.2.0": *
+#import "@preview/xyznote:0.3.0": *
 
 #show: xyznote.with(
   title: "xyznote",
@@ -22,6 +22,7 @@ This template is designed for efficient and organized note-taking with Typst. It
   createtime: "2024-11-27",
   lang: "zh",
   bibliography-style: "ieee",
+    preface: [], //Annotate this line to delete the preface page.
   bibliography-file: bibliography("refs.bib"), //Annotate this line to delete the bibliography page.
 )
 ```
@@ -50,6 +51,64 @@ This template is designed for efficient and organized note-taking with Typst. It
 
 ```typ
 #sectionline
+```
+
+```typ
+This is #highlight(fill: blue.C)[highlighted in blue].
+
+This is #highlight(fill: yellow.C)[highlighted in yellow].
+
+This is #highlight(fill: green.C)[highlighted in green].
+
+This is #highlight(fill: red.C)[highlighted in red].
+```
+
+```typ
+#brainstorming[
+  This is a brainstorming.
+]
+```
+
+```typ
+#definition[
+  This is a definition.
+]
+```
+
+```typ
+#question[
+  This is a question.
+]
+```
+
+```typ
+#task[
+  This is a task.
+]
+```
+
+```typ
+#brainstorming(lang: "zh")[
+  This is a brainstorming.
+]
+```
+
+```typ
+#definition(lang: "zh")[
+  This is a definition.
+]
+```
+
+```typ
+#question(lang: "zh")[
+  This is a question.
+]
+```
+
+```typ
+#task(lang: "zh")[
+  This is a task.
+]
 ```
 
 ## Edit in the vscode(Recommended)
@@ -87,3 +146,5 @@ https://github.com/gRox167/typst-assignment-template
 https://github.com/DVDTSB/dvdtyp
 
 https://github.com/a-kkiri/SimpleNote
+
+https://github.com/spidersouris/touying-unistra-pristine

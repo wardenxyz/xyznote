@@ -13,7 +13,7 @@ xyznote 是一个专为 Typst 设计的模板，旨在帮助用户记录高效�
 ## 使用
 
 ```typ
-#import "@preview/xyznote:0.2.0": *
+#import "@preview/xyznote:0.3.0": *
 
 #show: xyznote.with(
   title: "xyznote",
@@ -22,6 +22,7 @@ xyznote 是一个专为 Typst 设计的模板，旨在帮助用户记录高效�
   createtime: "2024-11-27",
   lang: "zh",
   bibliography-style: "ieee",
+  preface: [], //注释这一行删除参考序页
   bibliography-file: bibliography("refs.bib"), //注释这一行删除参考文献页面
 )
 ```
@@ -50,6 +51,64 @@ xyznote 是一个专为 Typst 设计的模板，旨在帮助用户记录高效�
 
 ```typ
 #sectionline
+```
+
+```typ
+This is #highlight(fill: blue.C)[highlighted in blue].
+
+This is #highlight(fill: yellow.C)[highlighted in yellow].
+
+This is #highlight(fill: green.C)[highlighted in green].
+
+This is #highlight(fill: red.C)[highlighted in red].
+```
+
+```typ
+#brainstorming[
+  This is a brainstorming.
+]
+```
+
+```typ
+#definition[
+  This is a definition.
+]
+```
+
+```typ
+#question[
+  This is a question.
+]
+```
+
+```typ
+#task[
+  This is a task.
+]
+```
+
+```typ
+#brainstorming(lang: "zh")[
+  This is a brainstorming.
+]
+```
+
+```typ
+#definition(lang: "zh")[
+  This is a definition.
+]
+```
+
+```typ
+#question(lang: "zh")[
+  This is a question.
+]
+```
+
+```typ
+#task(lang: "zh")[
+  This is a task.
+]
 ```
 
 ## 在 VSCode 中编辑（推荐）
@@ -87,3 +146,5 @@ https://github.com/gRox167/typst-assignment-template
 https://github.com/DVDTSB/dvdtyp
 
 https://github.com/a-kkiri/SimpleNote
+
+https://github.com/spidersouris/touying-unistra-pristine
