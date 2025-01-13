@@ -22,7 +22,7 @@ xyznote 是一个专为 Typst 设计的模板，旨在帮助用户记录高效�
   createtime: "2024-11-27",
   lang: "zh",
   bibliography-style: "ieee",
-  preface: [], //注释这一行删除参考序页
+  preface: [], //注释这一行删除序页
   bibliography-file: bibliography("refs.bib"), //注释这一行删除参考文献页面
 )
 ```
@@ -118,7 +118,7 @@ This is #highlight(fill: red.C)[highlighted in red].
 2. 开始项目
 
 ```bash
-typst init @preview/xyznote:0.2.0
+typst init @preview/xyznote:0.3.0
 ```
 
 ```bash

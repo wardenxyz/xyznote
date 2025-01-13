@@ -22,7 +22,7 @@ This template is designed for efficient and organized note-taking with Typst. It
   createtime: "2024-11-27",
   lang: "zh",
   bibliography-style: "ieee",
-    preface: [], //Annotate this line to delete the preface page.
+  preface: [], //Annotate this line to delete the preface page.
   bibliography-file: bibliography("refs.bib"), //Annotate this line to delete the bibliography page.
 )
 ```
@@ -118,7 +118,7 @@ This is #highlight(fill: red.C)[highlighted in red].
 2. Start the project
 
 ```bash
-typst init @preview/xyznote:0.2.0
+typst init @preview/xyznote:0.3.0
 ```
 
 ```bash
