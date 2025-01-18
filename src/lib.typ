@@ -20,48 +20,43 @@
   let chaptercounter = counter("chapter")
   set heading(numbering: "1.1.1.1.1.")
 
+  // 标题样式
   show heading: it => [
-    #set text(font: ("libertinus serif", "kaiti"))
+    #set text(font: ("libertinus serif", "SimSun"))
+    #set par(first-line-indent: 0em) // 取消标题首行缩进
     #if it.numbering != none {
-      text(rgb("#2196F3"), weight: 500)[#sym.section]
-      h(0.5em)
-      text(rgb("#2196F3"))[#counter(heading).display() ]
+      text()[#counter(heading).display()]
     }
     #it.body
-    #v(0.1em)
+    #v(0.2em) // 增加标题后的垂直间距
     #if it.level == 1 and it.numbering != none {
       chaptercounter.step()
       counter(math.equation).update(0)
     }
   ]
 
-  //一级标题样式
-  show heading.where(level: 1): it => box(width: 100%)[
-    #set align(left)
-    #set text(size: 18pt)
-    #set heading(numbering: "1.1.1.1. ")
-    #it
-  ]
+  //引入 numbly 包
+  import "@preview/numbly:0.1.0": numbly
+  set heading(
+    numbering: numbly(
+      "Part {1:1}:",
+      "{1}.{2}.",
+    ),
+  )
+  show heading.where(level: 1): set align(center)
 
-  //标题样式
-  show heading: it => box(width: 100%)[
-    #set align(left)
-    #set text(size: 15pt)
-    #set heading(numbering: "1.1.1.1.  ")
-    #it
-  ]
-
-  set outline(fill: repeat[~.], indent: 1em)
+  set outline(fill: repeat[~.], indent: 1em) //二级标题大纲缩进
 
   show outline: set heading(numbering: none)
   show outline: set par(first-line-indent: 0em)
 
   show outline.entry.where(level: 1): it => {
-    text(font: "libertinus serif", rgb("#2196F3"))[#strong[#it]]
+    text(font: ("libertinus serif", "SimSun"))[#strong[#it]]
   }
+  set par(leading: 9pt) //目录行间距
   show outline.entry: it => {
     h(1em)
-    text(font: "libertinus serif", rgb("#2196F3"))[#it]
+    text(font: ("libertinus serif", "SimSun"))[#it]
   }
 
   // 首行缩进

@@ -1,10 +1,4 @@
 {
-    "New typst note": {
-        "body": "#import \"template.typ\": *\n\n#show: note.with(\n  title: \"$1\",\n  author: \"$2\",\n  abstract: \"$3\",\n  createtime: \"$4\",\n  bibliography-file: \"ref.bib\" //注释这里删除参考文献页面,\n)\n$0",
-        "description": "New typst note",
-        "prefix": "typst",
-        "scope": "typst"
-    },
     "Green mark box": {
         "body": "#markbox[\n  $1\n]",
         "description": "Green mark box",
@@ -17,10 +11,58 @@
         "prefix": "tipbox",
         "scope": "typst"
     },
-    "分割线": {
+    "sectionline": {
         "body": "#sectionline",
-        "description": "分割线",
-        "prefix": "---",
+        "description": "sectionline",
+        "prefix": "sectionline",
+        "scope": "typst"
+    },
+    "hightlight yellow": {
+        "body": "#highlight(fill: yellow.C)[$1].",
+        "description": "hightlight yellow",
+        "prefix": "yellow",
+        "scope": "typst"
+    },
+    "hightlight blue": {
+        "body": "#highlight(fill: blue.C)[$1].",
+        "description": "hightlight blue",
+        "prefix": "blue",
+        "scope": "typst"
+    },
+    "hightlight green": {
+        "body": "#highlight(fill: green.C)[$1].",
+        "description": "hightlight green",
+        "prefix": "green",
+        "scope": "typst"
+    },
+    "hightlight red": {
+        "body": "#highlight(fill: red.C)[$1].",
+        "description": "hightlight red",
+        "prefix": "red",
+        "scope": "typst"
+    },
+    "brainstorming": {
+        "body": "#brainstorming[\n  $2\n]",
+        "description": "brainstorming",
+        "prefix": "brainstorming",
+        "scope": "typst"
+    },
+    "definition": {
+        "body": "#definition[\n  $2\n]",
+        "description": "definition",
+        "prefix": "definition",
+        "scope": "typst"
+    },
+    "question": {
+        "body": "#question[\n  $2\n]",
+        "description": "question",
+        "prefix": "question",
+        "scope": "typst"
+    },
+    "task": {
+        "body": "#task[\n  $2\n]",
+        "description": "task",
+        "prefix": "task",
         "scope": "typst"
     },
 }

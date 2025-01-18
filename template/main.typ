@@ -9,17 +9,13 @@
   bibliography-style: "ieee",
   preface: [
     #lorem(110)
-  ], //注释这一行删除参考序页
+  ], //注释这一行删除序页
   bibliography-file: bibliography("refs.bib"), //注释这一行删除参考文献页面
 )
 
 = 介绍
 
 这是一个简单的 Typst 笔记模板 @xyznote，用于记录笔记、学习、工作等内容
-
-= 使用
-
-直接新建一个 `.typ` 文件，然后在文件中打出 `typst`，代码片段会补全，然后按照提示填写即可
 
 = 公式
 
