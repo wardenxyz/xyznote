@@ -45,7 +45,7 @@
   )
   show heading.where(level: 1): set align(center)
 
-  set outline(fill: repeat[~.], indent: 1em) //二级标题大纲缩进
+  show outline.entry.where(level: 1): set block(above: 1.2em) //一级标题块间距
 
   show outline: set heading(numbering: none)
   show outline: set par(first-line-indent: 0em)
@@ -55,22 +55,17 @@
   }
   set par(leading: 9pt) //目录行间距
   show outline.entry: it => {
-    h(1em)
     text(font: ("libertinus serif", "SimSun"))[#it]
   }
 
   // 首行缩进
-  set par(first-line-indent: 2em)
-  let fakepar = context {
-    let b = par(box())
-    b
-    v(-measure(b + b).height)
-  }
-  show math.equation.where(block: true): it => it + fakepar // 公式后缩进
-  show heading: it => it + fakepar // 标题后缩进
-  show figure: it => it + fakepar // 图表后缩进
-  show enum.item: it => it + fakepar
-  show list.item: it => it + fakepar // 列表后缩进
+  set par(
+    first-line-indent: (
+      amount: 2em,
+      all: true,
+    ),
+  )
+  set par(spacing: 1.2em) //段落间距
 
   //封面
   set page(
@@ -164,7 +159,7 @@
   }
 
   //外部包
-  import "@preview/codly:1.0.0": *
+  import "@preview/codly:1.2.0": *
   import "@preview/codly-languages:0.1.1": *
   show: codly-init //初始化 codly
   // codly(number-format: none) //不显示行号
