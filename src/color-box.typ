@@ -45,7 +45,9 @@
         dash: if dotted { "dotted" } else { "solid" },
       ),
     ),
-    pad(
+  )[
+    #set par(first-line-indent: 0pt)
+    #pad(
       left: 0.3em,
       right: 0.3em,
       text(
@@ -61,8 +63,8 @@
           above: 0.8em,
           text(size: 1.2em, fill: text-color, body),
         ),
-    ),
-  )
+    )
+  ]
 }
 
 // 特定类型的提示框函数
