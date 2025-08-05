@@ -13,7 +13,7 @@ This template is designed for efficient and organized note-taking with Typst. It
 ## Usage
 
 ```typ
-#import "@preview/xyznote:0.3.0": *
+#import "@preview/xyznote:0.4.0": *
 
 #show: xyznote.with(
   title: "xyznote",
@@ -118,7 +118,7 @@ This is #highlight(fill: red.C)[highlighted in red].
 2. Start the project
 
 ```bash
-typst init @preview/xyznote:0.3.0
+typst init @preview/xyznote:0.4.0
 ```
 
 ```bash

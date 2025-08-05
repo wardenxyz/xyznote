@@ -13,7 +13,7 @@ xyznote 是一个专为 Typst 设计的模板，旨在帮助用户记录高效�
 ## 使用
 
 ```typ
-#import "@preview/xyznote:0.3.0": *
+#import "@preview/xyznote:0.4.0": *
 
 #show: xyznote.with(
   title: "xyznote",
@@ -118,7 +118,7 @@ This is #highlight(fill: red.C)[highlighted in red].
 2. 开始项目
 
 ```bash
-typst init @preview/xyznote:0.3.0
+typst init @preview/xyznote:0.4.0
 ```
 
 ```bash
