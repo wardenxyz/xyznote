@@ -44,7 +44,7 @@
   secondary-color: pink.E.lighten(90%),
   tertiary-color: pink.E,
   dotted: false,
-  figure-kind: none,
+  figure-kind: "admonition",
   text-color: black,
   emoji: none,
   title-size: auto,
