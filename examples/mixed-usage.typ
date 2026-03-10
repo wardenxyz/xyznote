@@ -45,7 +45,7 @@ Import the library and wrap your document:
 ```
 
 #hint[
-  The `lang` parameter defaults to `"zh"`. Set `lang: "en"` for English documents.
+  The `lang` parameter defaults to `"en"`. Set `lang: "zh"` for Chinese documents.
 ]
 
 = API Reference
@@ -89,11 +89,11 @@ The base `admonition()` function powers all directive types.
 = Troubleshooting
 
 #warning[
-  If directives appear without colored borders, ensure you are importing from `src/lib.typ` and not directly from `src/color-box.typ` without `src/colors.typ`.
+  If directives appear without colored borders, ensure you import the library via `src/lib.typ` (or the package entry point) rather than importing internal modules like `src/color-box.typ` directly.
 ]
 
 #error[
-  *"Unknown key: figure-kind"* — This error occurs if you pass an unregistered `figure-kind` string to `admonition()`. Use one of the built-in directive functions instead.
+  Errors about *unknown translation keys* typically mean that `admonition()` tried to look up a label that is not defined for the current language. Check your localization settings or use one of the built-in directive functions instead.
 ]
 
 #caution[

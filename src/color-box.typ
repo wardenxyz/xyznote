@@ -1,8 +1,8 @@
 #import "colors.typ": *
 
 // Global admonition defaults — use `set-admonition-defaults` to override these
-#let _admonition-title-size = state("admonition-title-size", 1.1em)
-#let _admonition-body-size = state("admonition-body-size", 1.2em)
+#let _admonition-title-size = state("xyznote-admonition-title-size", 1.1em)
+#let _admonition-body-size = state("xyznote-admonition-body-size", 1.2em)
 
 // Call this at the top of your document to globally change title/body sizes for all admonitions.
 // Example: #set-admonition-defaults(title-size: 0.9em, body-size: 1.0em)
