@@ -89,7 +89,7 @@ The base `admonition()` function powers all directive types.
 = Troubleshooting
 
 #warning[
-  If directives appear without colored borders, ensure you are importing from `src/lib.typ` and not directly from `src/color-box.typ` without `src/colors.typ`.
+  If directives appear without colored borders, ensure you import the library via `src/lib.typ` (or the package entry point) rather than importing internal modules like `src/color-box.typ` directly.
 ]
 
 #error[
