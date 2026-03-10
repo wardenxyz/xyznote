@@ -93,7 +93,7 @@ The base `admonition()` function powers all directive types.
 ]
 
 #error[
-  *"Unknown key: figure-kind"* — This error occurs if you pass an unregistered `figure-kind` string to `admonition()`. Use one of the built-in directive functions instead.
+  Errors about *unknown translation keys* typically mean that `admonition()` tried to look up a label that is not defined for the current language. Check your localization settings or use one of the built-in directive functions instead.
 ]
 
 #caution[
