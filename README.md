@@ -2,8 +2,8 @@
 
 [简体中文](README_zh.md) English
 
-| Cover | Contents | Main Body | Bibliography |
-|:--:|:--:|:--:|:--:|
+|          Cover           |           Contents            |           Main Body            |           Bibliography            |
+| :----------------------: | :---------------------------: | :----------------------------: | :-------------------------------: |
 | ![Cover](image/main.png) | ![Contents](image/page-2.png) | ![Main Body](image/page-3.png) | ![Bibliography](image/page-4.png) |
 
 Simple and Functional Typst Note Template
@@ -13,7 +13,7 @@ This template is designed for efficient and organized note-taking with Typst. It
 ## Usage
 
 ```typ
-#import "@preview/xyznote:0.4.0": *
+#import "@preview/xyznote:0.5.0": *
 
 #show: xyznote.with(
   title: "xyznote",
@@ -108,18 +108,18 @@ Every directive accepts optional parameters for full visual control:
 )[ Your content here. ]
 ```
 
-| Parameter | Description | Default |
-|---|---|---|
-| `title` | Override the directive title | Auto from type + lang |
-| `title-size` | Font size of the title | `1.1em` |
-| `body-size` | Font size of the body | `1.2em` |
-| `primary-color` | Left border color | Varies by type |
-| `secondary-color` | Background fill color | Varies by type |
-| `tertiary-color` | Title text color | Varies by type |
-| `text-color` | Body text color | `black` |
-| `emoji` | Icon before the title | Varies by type |
-| `dotted` | Dotted border instead of solid | `false` |
-| `lang` | `"en"` or `"zh"` | `"en"` |
+| Parameter         | Description                    | Default               |
+| ----------------- | ------------------------------ | --------------------- |
+| `title`           | Override the directive title   | Auto from type + lang |
+| `title-size`      | Font size of the title         | `1.1em`               |
+| `body-size`       | Font size of the body          | `1.2em`               |
+| `primary-color`   | Left border color              | Varies by type        |
+| `secondary-color` | Background fill color          | Varies by type        |
+| `tertiary-color`  | Title text color               | Varies by type        |
+| `text-color`      | Body text color                | `black`               |
+| `emoji`           | Icon before the title          | Varies by type        |
+| `dotted`          | Dotted border instead of solid | `false`               |
+| `lang`            | `"en"` or `"zh"`               | `"en"`                |
 
 ### Global Size Defaults
 
@@ -168,7 +168,7 @@ See the `examples/` directory for complete working documents:
 2. Start the project
 
 ```bash
-typst init @preview/xyznote:0.4.0
+typst init @preview/xyznote:0.5.0
 ```
 
 ```bash
