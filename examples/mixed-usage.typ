@@ -45,7 +45,7 @@ Import the library and wrap your document:
 ```
 
 #hint[
-  The `lang` parameter defaults to `"zh"`. Set `lang: "en"` for English documents.
+  The `lang` parameter defaults to `"en"`. Set `lang: "zh"` for Chinese documents.
 ]
 
 = API Reference
