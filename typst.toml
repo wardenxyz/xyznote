@@ -1,6 +1,6 @@
 [package]
 name = "Typst Notebooks"
-version = "0.4.0"
+version = "0.5.0"
 entrypoint = "template.typ"
 license = "MIT-0"
 description = "A Typst template for creating notebooks."
